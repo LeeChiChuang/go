@@ -729,6 +729,7 @@ func Main(archInit func(*Arch)) {
 	// Prepare for SSA compilation.
 	// This must be before peekitabs, because peekitabs
 	// can trigger function compilation.
+	// SSA 配置的初始化过程
 	initssaconfig()
 
 	// Just before compilation, compile itabs found on

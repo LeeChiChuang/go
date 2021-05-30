@@ -411,7 +411,7 @@ type g struct {
 	// stackguard1 is the stack pointer compared in the C stack growth prologue.
 	// It is stack.lo+StackGuard on g0 and gsignal stacks.
 	// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
-	stack       stack   // offset known to runtime/cgo
+	stack       stack   // offset known to runtime/cgo 当前Goroutine的栈内存范围[stack.lo,stack.hi]
 	stackguard0 uintptr // offset known to liblink
 	stackguard1 uintptr // offset known to liblink
 

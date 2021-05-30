@@ -582,6 +582,9 @@ func schedinit() {
 	if n, ok := atoi32(gogetenv("GOMAXPROCS")); ok && n > 0 {
 		procs = n
 	}
+	// 更新处理器数量
+	// 调用 runtime.procresize 是调度器启动的最后一步，在这一步过后调度器会完成相应数量处理器的启动，
+	// 等待用户创建运行新的 Goroutine 并为 Goroutine 调度处理器资源。
 	if procresize(procs) != nil {
 		throw("unknown runnable goroutine during bootstrap")
 	}

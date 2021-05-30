@@ -214,7 +214,7 @@ func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	if transport == nil {
 		transport = http.DefaultTransport
 	}
-
+	// 1 验证请求是否终止
 	ctx := req.Context()
 	if cn, ok := rw.(http.CloseNotifier); ok {
 		var cancel context.CancelFunc
@@ -229,6 +229,7 @@ func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 			}
 		}()
 	}
+
 
 	outreq := req.Clone(ctx)
 	if req.ContentLength == 0 {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeReadingNote">
+    <topics>
+      <topic>
+        <name>中间代码生成</name>
+        <note>## 类型检查</note>
+        <updatedAt>2020-12-14 10:52:13</updatedAt>
+        <topicLines>
+          <topicLine>
+            <line>732</line>
+            <inProject>true</inProject>
+            <url>file://$PROJECT_DIR$/src/cmd/compile/internal/gc/main.go</url>
+            <note>配置初始化   
+
+SSA 配置的初始化过程是中间代码生成之前的准备工作，在该过程中，我们会缓存可能用到的类型指针、
+初始化 SSA 配置和一些之后会调用的运行时函数，例如：用于处理 defer 关键字的 runtime.deferproc、
+用于创建 Goroutine 的 runtime.newproc 和扩容切片的 runtime.growslice 等，除此之外还会根据当前的目标设备初始化特定的 ABI2。
+我们以 cmd/compile/internal/gc.initssaconfig 作为入口开始分析配置初始化的过程。</note>
+            <relativePath>src/cmd/compile/internal/gc/main.go</relativePath>
+          </topicLine>
+        </topicLines>
+      </topic>
+    </topics>
+    <state lastExportDir="" lastImportDir="" />
+  </component>
+</project>
